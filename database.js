@@ -45,78 +45,78 @@ person.create([
   },
 ]);
 
-// //the find operation
-// person.find({ name:'salah'}).then(doc => {
-//     console.log(doc)
-//   })
-//   .catch(err => {
-//     console.error(err)})
-//     //the findone operation
-//     person.findOne({ name:'takwa'}).then(doc => {
-//         console.log(doc)
-//       })
-//       .catch(err => {
-//         console.error(err)})
+//the find operation
+person.find({ name:'salah'}).then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)})
+    //the findone operation
+    person.findOne({ name:'takwa'}).then(doc => {
+        console.log(doc)
+      })
+      .catch(err => {
+        console.error(err)})
     
-// //find bu id
-// person.findById( '62a7b893b55c976d224b5868' ).then(doc => {
-//     console.log(doc)
-//   })
-//   .catch(err => {
-//     console.error(err)}) 
-//
+//find by id
+person.findById( '62a7b893b55c976d224b5868' ).then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)}) 
+
 
 
 //find and update favourite food
-// person.findById('62a7c9297292b39c22a427c2',function(error,result){
-// console.log(result)
-// if (error) {
-//   return console.log(error)
+person.findById('62a7c9297292b39c22a427c2',function(error,result){
+console.log(result)
+if (error) {
+  return console.log(error)
     
-//    } else {
-//     result.favoriteFoods.push("potato");
-//     result.save((error,updatedperson)=>{
-//       console.log(updatedperson)
+   } else {
+    result.favoriteFoods.push("potato");
+    result.save((error,updatedperson)=>{
+      console.log(updatedperson)
   
-//     })
+    })
   
-//    }
-// });
+   }
+});
 
-// //Perform New Updates on a Document Using model.findOneAndUpdate()
-// const filter = { name: 'ali' };
-// const update = { age: 30}; 
-// person.findOneAndUpdate(filter, filter,(error,data)=>{},{new: true});
+//Perform New Updates on a Document Using model.findOneAndUpdate()
+const filter = { name: 'ali' };
+const update = { age: 30}; 
+person.findOneAndUpdate(filter, filter,(error,data)=>{},{new: true});
 
-// //Delete One Document Using model.findByIdAndRemove
-// var user_id = '62a7cc51d854ca97bba02e5d'; 
-// person.findByIdAndRemove(user_id, function (err, docs) {
-//     if (err){
-//         console.log(err)
-//     }
-//     else{
-//         console.log("Removed User : ", docs);
-//     }
-// });
+//Delete One Document Using model.findByIdAndRemove
+var user_id = '62a7cc51d854ca97bba02e5d'; 
+person.findByIdAndRemove(user_id, function (err, docs) {
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("Removed User : ", docs);
+    }
+});
 
-// //MongoDB and Mongoose - Delete Many Documents with model.remove()
-// person.remove({ name: 'takwa' }, function (err, result) {
-//   if (err){
-//       console.log(err)
-//   }else{
-//       console.log("Result :", result) 
-//   }})
+//MongoDB and Mongoose - Delete Many Documents with model.remove()
+person.remove({ name: 'takwa' }, function (err, result) {
+  if (err){
+      console.log(err)
+  }else{
+      console.log("Result :", result) 
+  }})
 
-// //Chain Search Query Helpers to Narrow Search Results
-// person.find({ favouriteFoods: "burritos" }  )                   
+//Chain Search Query Helpers to Narrow Search Results
+person.find({ favouriteFoods: "burritos" }  )                   
                
-//          .sort({name: 1}  )
-//          .limit(2)     
-//          .select({name: true}) 
-//          .exec()                  
-//          .then(docs => {
-//             console.log(docs)
-//           })
-//          .catch(err => {
-//             console.error(err)
-//           }) 
+         .sort({name: 1}  )
+         .limit(2)     
+         .select({name: true}) 
+         .exec()                  
+         .then(docs => {
+            console.log(docs)
+          })
+         .catch(err => {
+            console.error(err)
+          }) 
